@@ -13,35 +13,29 @@ import { Header } from './components/Header';
 import { Main } from './components/Main';
 import { Section } from './components/Section';
 import { Footer } from './components/Footer';
+import { Logo } from './components/Logo';
 
 export function App() {
   return (
     <>
       <Header>
-        <Section>
-          <h1>
-            <TimerIcon />
-            <span>Chronos</span>
-          </h1>
-        </Section>
-        <Section>
-          <nav>
-            <ul>
-              <li>
-                <HouseIcon />
-              </li>
-              <li>
-                <HistoryIcon />
-              </li>
-              <li>
-                <SettingsIcon />
-              </li>
-              <li>
-                <SunIcon />
-              </li>
-            </ul>
-          </nav>
-        </Section>
+        <Logo />
+        <nav>
+          <ul>
+            <li>
+              <HouseIcon />
+            </li>
+            <li>
+              <HistoryIcon />
+            </li>
+            <li>
+              <SettingsIcon />
+            </li>
+            <li>
+              <SunIcon />
+            </li>
+          </ul>
+        </nav>
       </Header>
       <Main>
         <Section>
