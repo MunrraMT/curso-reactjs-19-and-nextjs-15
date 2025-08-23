@@ -2,7 +2,7 @@
 
 React 19 e Next.js 15 com App Router, Server Actions, Server Components, Tailwind CSS, TypeScript e Rest API com NestJS
 
-[Link do curso](https://www.udemy.com/course/curso-de-reactjs-nextjs-completo-do-basico-ao-avancado/?couponCode=KEEPLEARNINGBR)
+[Link do curso](https://www.udemy.com/course/curso-de-reactjs-nextjs-completo-do-basico-ao-avancado/)
 
 ## Descrição do curso
 
