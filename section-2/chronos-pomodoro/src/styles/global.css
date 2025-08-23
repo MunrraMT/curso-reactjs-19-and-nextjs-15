@@ -15,3 +15,18 @@ body {
   background: var(--gray-900);
   color: var(--text-default);
 }
+
+.container {
+  width: 100%;
+  padding: 3.2rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.content {
+  width: 100%;
+  max-width: 98rem;
+}
