@@ -4,5 +4,5 @@ import './styles/theme.css';
 import './styles/global.css';
 
 export function App() {
-  return <Heading />;
+  return <Heading>Olá mundo</Heading>;
 }
