@@ -1,11 +1,3 @@
-import {
-  HistoryIcon,
-  HouseIcon,
-  SettingsIcon,
-  SunIcon,
-  TimerIcon,
-} from 'lucide-react';
-
 import './styles/theme.css';
 import './styles/global.css';
 
@@ -14,28 +6,14 @@ import { Main } from './components/Main';
 import { Section } from './components/Section';
 import { Footer } from './components/Footer';
 import { Logo } from './components/Logo';
+import { Navigation } from './components/Navigation';
 
 export function App() {
   return (
     <>
       <Header>
         <Logo />
-        <nav>
-          <ul>
-            <li>
-              <HouseIcon />
-            </li>
-            <li>
-              <HistoryIcon />
-            </li>
-            <li>
-              <SettingsIcon />
-            </li>
-            <li>
-              <SunIcon />
-            </li>
-          </ul>
-        </nav>
+        <Navigation />
       </Header>
       <Main>
         <Section>
