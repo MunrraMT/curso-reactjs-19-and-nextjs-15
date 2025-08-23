@@ -7,6 +7,7 @@ import { Section } from './components/Section';
 import { Footer } from './components/Footer';
 import { Logo } from './components/Logo';
 import { Navigation } from './components/Navigation';
+import { Countdown } from './components/Countdown';
 
 export function App() {
   return (
@@ -16,9 +17,7 @@ export function App() {
         <Navigation />
       </Header>
       <Main>
-        <Section>
-          <p>00:00</p>
-        </Section>
+        <Countdown />
         <Section>
           <form>
             <p>task</p>
