@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 
-import styles from './Footer.module.css';
+import styles from './styles.module.css';
 
 interface Props {
   children: ReactNode;
