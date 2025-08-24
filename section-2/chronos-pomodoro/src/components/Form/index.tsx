@@ -1,6 +1,8 @@
 import type { FormEvent } from 'react';
+import { CirclePlay } from 'lucide-react';
 
 import { Section } from '../Section';
+import { InputCustom } from '../InputCustom';
 
 import styles from './styles.module.css';
 
@@ -12,15 +14,11 @@ export function Form() {
   return (
     <Section>
       <form className={styles.form} onSubmit={handle_submit}>
-        <label className={styles.label} htmlFor="new_task">
-          task
-        </label>
-        <input
-          className={styles.input_text}
-          type="text"
+        <InputCustom
+          label="task"
           name="new_task"
-          id="new_task"
-          placeholder="digite algo"
+          placeholder="Digite algo"
+          type="text"
         />
 
         <p className={styles.next_step}>
@@ -30,8 +28,12 @@ export function Form() {
         <p className={styles.steps_label}>Ciclos</p>
         <div className={styles.step_item}>0 0 0 0</div>
 
-        <button className={styles.btn_submit} type="submit">
-          Iniciar nova tarefa
+        <button
+          title="Iniciar nova tarefa"
+          className={styles.btn_submit}
+          type="submit"
+        >
+          <CirclePlay className={styles.btn_submit_icon} />
         </button>
       </form>
     </Section>
