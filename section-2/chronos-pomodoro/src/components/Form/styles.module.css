@@ -1,0 +1,24 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.4rem;
+}
+
+.label {
+}
+
+.input_text {
+}
+
+.next_step {
+}
+
+.steps_label {
+}
+
+.step_item {
+}
+
+.btn_submit {
+}

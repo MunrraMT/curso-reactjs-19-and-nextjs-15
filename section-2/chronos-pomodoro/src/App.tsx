@@ -1,6 +1,3 @@
-import './styles/theme.css';
-import './styles/global.css';
-
 import { Header } from './components/Header';
 import { Main } from './components/Main';
 import { Section } from './components/Section';
@@ -8,6 +5,10 @@ import { Footer } from './components/Footer';
 import { Logo } from './components/Logo';
 import { Navigation } from './components/Navigation';
 import { Countdown } from './components/Countdown';
+import { Form } from './components/Form';
+
+import './styles/theme.css';
+import './styles/global.css';
 
 export function App() {
   return (
@@ -18,17 +19,7 @@ export function App() {
       </Header>
       <Main>
         <Countdown />
-        <Section>
-          <form>
-            <p>task</p>
-            <label htmlFor="new_task">digite algo</label>
-            <input type="text" name="new_task" id="new_task" />
-            <p>
-              Próximo ciclo é de <strong>25min</strong>
-            </p>
-            <button type="submit">Iniciar nova tarefa</button>
-          </form>
-        </Section>
+        <Form />
       </Main>
       <Footer>
         <Section>
