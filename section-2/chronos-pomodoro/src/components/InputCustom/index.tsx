@@ -1,11 +1,11 @@
-import type { HTMLInputTypeAttribute } from 'react';
+import type { ComponentProps } from 'react';
 import styles from './styles.module.css';
 
 interface Props {
   label: string;
   name: string;
   placeholder: string;
-  type: HTMLInputTypeAttribute;
+  type: ComponentProps<'input'>['type'];
 }
 
 export function InputCustom(props: Props) {
