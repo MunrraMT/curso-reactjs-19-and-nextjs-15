@@ -6,6 +6,7 @@
 .link {
   padding: 1.2rem;
   border-radius: 0.8rem;
+  border: none;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -13,6 +14,7 @@
   background-color: var(--primary);
   color: var(--text-hover-primary);
   transition: all 0.2s ease-in-out;
+  cursor: pointer;
 }
 
 .link:hover {
