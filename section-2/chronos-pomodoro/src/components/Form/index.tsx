@@ -1,11 +1,12 @@
 import type { FormEvent } from 'react';
-import { CirclePlay } from 'lucide-react';
+import { PlayCircleIcon, StopCircleIcon } from 'lucide-react';
 
 import { Section } from '../Section';
 import { InputCustom } from '../InputCustom';
 import { Cycles } from '../Cycles';
 
 import styles from './styles.module.css';
+import { ButtonCustom } from '../ButtonCustom';
 
 export function Form() {
   const handle_submit = (event: FormEvent) => {
@@ -28,14 +29,11 @@ export function Form() {
         </p>
 
         <Cycles />
-
-        <button
+        <ButtonCustom
           title="Iniciar nova tarefa"
-          className={styles.btn_submit}
-          type="submit"
-        >
-          <CirclePlay className={styles.btn_submit_icon} />
-        </button>
+          IconIdle={PlayCircleIcon}
+          IconActive={StopCircleIcon}
+        />
       </form>
     </Section>
   );
