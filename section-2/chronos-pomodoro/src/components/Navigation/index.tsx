@@ -1,20 +1,34 @@
-import { HistoryIcon, HouseIcon, SettingsIcon, SunIcon } from 'lucide-react';
+import {
+  HistoryIcon,
+  HouseIcon,
+  MoonIcon,
+  SettingsIcon,
+  SunIcon,
+} from 'lucide-react';
 
 import styles from './styles.module.css';
 import { NavigationItem } from '../NavigationItem';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, type ComponentType } from 'react';
 
-type DataTheme = 'dark' | 'light';
+type AvailableTheme = 'dark' | 'light';
 
 export function Navigation() {
-  const [theme, set_theme] = useState<DataTheme>('dark');
+  const [theme, set_theme] = useState<AvailableTheme>(() => {
+    return (localStorage.getItem('data-theme') || 'dark') as AvailableTheme;
+  });
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('data-theme', theme);
   }, [theme]);
 
   const change_theme = () => {
     set_theme((prev) => (prev === 'dark' ? 'light' : 'dark'));
+  };
+
+  const current_theme_icon: Record<AvailableTheme, ComponentType> = {
+    dark: SunIcon,
+    light: MoonIcon,
   };
 
   return (
@@ -25,7 +39,7 @@ export function Navigation() {
         <NavigationItem title="Configurações" Icon={SettingsIcon} />
         <NavigationItem
           title="Trocar tema"
-          Icon={SunIcon}
+          Icon={current_theme_icon[theme]}
           onClick={change_theme}
         />
       </ul>
