@@ -3,6 +3,7 @@ import { CirclePlay } from 'lucide-react';
 
 import { Section } from '../Section';
 import { InputCustom } from '../InputCustom';
+import { Cycles } from '../Cycles';
 
 import styles from './styles.module.css';
 
@@ -26,8 +27,7 @@ export function Form() {
           Próximo ciclo é de <strong>25min</strong>
         </p>
 
-        <p className={styles.steps_label}>Ciclos</p>
-        <div className={styles.step_item}>0 0 0 0</div>
+        <Cycles />
 
         <button
           title="Iniciar nova tarefa"

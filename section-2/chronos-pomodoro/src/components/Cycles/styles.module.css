@@ -1,0 +1,35 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+}
+
+.label {
+}
+
+.list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+}
+
+.item {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+}
+
+.item_work {
+  background: var(--warning);
+}
+
+.item_short_rest {
+  background-color: var(--primary);
+}
+
+.item_long_rest {
+  background: var(--info);
+}
