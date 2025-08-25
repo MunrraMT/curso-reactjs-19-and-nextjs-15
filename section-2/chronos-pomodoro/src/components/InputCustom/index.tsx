@@ -8,8 +8,8 @@ interface Props extends ComponentProps<'input'> {
 
 export function InputCustom(props: Props) {
   const className = props.className
-    ? `${styles.input_text} ${props.className}`
-    : styles.input_text;
+    ? `${styles.input} ${props.className}`
+    : styles.input;
 
   return (
     <>

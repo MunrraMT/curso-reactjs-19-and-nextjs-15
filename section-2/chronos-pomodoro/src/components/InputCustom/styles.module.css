@@ -1,7 +1,7 @@
 .label {
 }
 
-.input_text {
+.input {
   background-color: transparent;
   text-align: center;
   font-size: 1.8rem;
@@ -13,8 +13,19 @@
   transition: all 0.2s ease-in-out;
 }
 
-.input_text::placeholder {
+.input::placeholder {
   color: var(--gray-500);
   font-size: 1.4rem;
   font-style: italic;
+}
+
+.input:focus {
+  border-radius: 0.8rem;
+  border: 0.2rem solid var(--primary);
+}
+
+.input:disabled {
+  border-bottom-color: var(--disabled);
+  color: var(--text-muted);
+  cursor: no-drop;
 }
