@@ -1,26 +1,21 @@
 import type { ComponentProps } from 'react';
 import styles from './styles.module.css';
 
-interface Props {
+interface Props extends ComponentProps<'input'> {
   label: string;
-  name: string;
-  placeholder: string;
-  type: ComponentProps<'input'>['type'];
 }
 
 export function InputCustom(props: Props) {
+  const className = props.className
+    ? `${styles.input_text} ${props.className}`
+    : styles.input_text;
+
   return (
     <>
       <label className={styles.label} htmlFor={props.name}>
         {props.label}
       </label>
-      <input
-        className={styles.input_text}
-        type={props.type}
-        name={props.name}
-        id={props.name}
-        placeholder={props.placeholder}
-      />
+      <input {...props} className={className} />
     </>
   );
 }
