@@ -16,6 +16,7 @@ export function Form() {
       <form className={styles.form} onSubmit={handle_submit}>
         <InputCustom
           label="task"
+          id="new_task"
           name="new_task"
           placeholder="Digite algo"
           type="text"

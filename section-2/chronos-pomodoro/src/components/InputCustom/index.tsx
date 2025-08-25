@@ -2,7 +2,8 @@ import type { ComponentProps } from 'react';
 import styles from './styles.module.css';
 
 interface Props extends ComponentProps<'input'> {
-  label: string;
+  id: string;
+  label?: string;
 }
 
 export function InputCustom(props: Props) {
@@ -12,10 +13,12 @@ export function InputCustom(props: Props) {
 
   return (
     <>
-      <label className={styles.label} htmlFor={props.name}>
-        {props.label}
-      </label>
-      <input {...props} className={className} />
+      {props.label && (
+        <label className={styles.label} htmlFor={props.id}>
+          {props.label}
+        </label>
+      )}
+      <input {...props} id={props.id} className={className} />
     </>
   );
 }
