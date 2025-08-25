@@ -8,7 +8,7 @@ import { Cycles } from '../Cycles';
 import styles from './styles.module.css';
 import { ButtonCustom } from '../ButtonCustom';
 
-export function Form() {
+export function MainForm() {
   const handle_submit = (event: FormEvent) => {
     event.preventDefault();
   };
