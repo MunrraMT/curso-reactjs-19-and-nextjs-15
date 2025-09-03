@@ -1,4 +1,3 @@
-import type { FormEvent } from 'react';
 import { PlayCircleIcon, StopCircleIcon } from 'lucide-react';
 
 import { Section } from '../Section';
@@ -9,13 +8,13 @@ import { ButtonCustom } from '../ButtonCustom';
 import styles from './styles.module.css';
 
 export function MainForm() {
-  const handle_submit = (event: FormEvent) => {
+  const handle_create_new_task = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
   };
 
   return (
     <Section>
-      <form className={styles.form} onSubmit={handle_submit}>
+      <form className={styles.form} onSubmit={handle_create_new_task}>
         <InputCustom
           label="task"
           id="new_task"
