@@ -1,5 +1,5 @@
 import { Section } from '../Section';
-import { useTaskContext } from '../../contexts/TaskContext/useTaskContext';
+import { useTaskContext } from '../../contexts/TaskContext';
 
 import styles from './styles.module.css';
 
