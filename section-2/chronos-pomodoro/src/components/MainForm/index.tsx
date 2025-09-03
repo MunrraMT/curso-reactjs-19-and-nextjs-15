@@ -6,8 +6,11 @@ import { Cycles } from '../Cycles';
 import { ButtonCustom } from '../ButtonCustom';
 
 import styles from './styles.module.css';
+import { useState } from 'react';
 
 export function MainForm() {
+  const [task_name, set_task_name] = useState('');
+
   const handle_create_new_task = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
   };
@@ -21,6 +24,8 @@ export function MainForm() {
           name="new_task"
           placeholder="Digite algo"
           type="text"
+          value={task_name}
+          onChange={(e) => set_task_name(e.currentTarget.value)}
         />
 
         <p className={styles.next_step}>
