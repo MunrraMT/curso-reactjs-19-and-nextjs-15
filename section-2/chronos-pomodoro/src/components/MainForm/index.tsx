@@ -4,13 +4,17 @@ import { PlayCircleIcon, StopCircleIcon } from 'lucide-react';
 import { Section } from '../Section';
 import { InputCustom } from '../InputCustom';
 import { Cycles } from '../Cycles';
+import { ButtonCustom } from '../ButtonCustom';
+import { type Props as HomeProps } from '../../pages/home/index';
 
 import styles from './styles.module.css';
-import { ButtonCustom } from '../ButtonCustom';
 
-export function MainForm() {
+interface Props extends HomeProps {}
+
+export function MainForm(props: Props) {
   const handle_submit = (event: FormEvent) => {
     event.preventDefault();
+    console.log(props);
   };
 
   return (

@@ -1,11 +1,16 @@
 import { Section } from '../Section';
+import type { TaskStateModel } from '../../models/TaskStateModel';
 
 import styles from './styles.module.css';
 
-export function Countdown() {
+interface Props {
+  formattedSecondsRemaining: TaskStateModel['formattedSecondsRemaining'];
+}
+
+export function Countdown(props: Props) {
   return (
     <Section>
-      <p className={styles.container}>00:00</p>
+      <p className={styles.container}>{props.formattedSecondsRemaining}</p>
     </Section>
   );
 }
