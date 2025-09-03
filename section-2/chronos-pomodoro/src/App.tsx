@@ -5,6 +5,7 @@ import type { TaskStateModel } from './models/TaskStateModel';
 
 import './styles/theme.css';
 import './styles/global.css';
+import { TaskContext } from './contexts/TaskContext';
 
 const initial_state: TaskStateModel = {
   tasks: [],
@@ -21,5 +22,9 @@ const initial_state: TaskStateModel = {
 
 export function App() {
   const [state, set_state] = useState(initial_state);
-  return <Home />;
+  return (
+    <TaskContext.Provider value={{ chave: 'outro valor' }}>
+      <Home />
+    </TaskContext.Provider>
+  );
 }
