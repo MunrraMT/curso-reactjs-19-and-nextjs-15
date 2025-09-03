@@ -2,10 +2,10 @@ import { useState } from 'react';
 
 import { Home } from './pages/home';
 import type { TaskStateModel } from './models/TaskStateModel';
+import { TaskContext } from './contexts/TaskContext';
 
 import './styles/theme.css';
 import './styles/global.css';
-import { TaskContext } from './contexts/TaskContext';
 
 const initial_state: TaskStateModel = {
   tasks: [],
