@@ -7,10 +7,13 @@ import { Cycles } from '../Cycles';
 import { ButtonCustom } from '../ButtonCustom';
 
 import styles from './styles.module.css';
+import { useTaskContext } from '../../contexts/TaskContext';
 
 export function MainForm() {
+  const { set_state } = useTaskContext();
   const handle_submit = (event: FormEvent) => {
     event.preventDefault();
+    set_state((prev) => ({ ...prev, formattedSecondsRemaining: '10:22' }));
   };
 
   return (
