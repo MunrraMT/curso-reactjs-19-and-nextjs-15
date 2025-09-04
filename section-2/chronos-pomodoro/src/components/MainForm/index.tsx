@@ -1,3 +1,4 @@
+import { useRef } from 'react';
 import { PlayCircleIcon, StopCircleIcon } from 'lucide-react';
 
 import { Section } from '../Section';
@@ -6,10 +7,9 @@ import { Cycles } from '../Cycles';
 import { ButtonCustom } from '../ButtonCustom';
 
 import styles from './styles.module.css';
-import { useState } from 'react';
 
 export function MainForm() {
-  const [task_name, set_task_name] = useState('');
+  const task_name_input = useRef<HTMLInputElement>(null);
 
   const handle_create_new_task = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -19,13 +19,12 @@ export function MainForm() {
     <Section>
       <form className={styles.form} onSubmit={handle_create_new_task}>
         <InputCustom
+          ref={task_name_input}
           label="task"
           id="new_task"
           name="new_task"
           placeholder="Digite algo"
           type="text"
-          value={task_name}
-          onChange={(e) => set_task_name(e.currentTarget.value)}
         />
 
         <p className={styles.next_step}>
