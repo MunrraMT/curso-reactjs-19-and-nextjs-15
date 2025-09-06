@@ -5,21 +5,55 @@ import { Section } from '../Section';
 import { InputCustom } from '../InputCustom';
 import { Cycles } from '../Cycles';
 import { ButtonCustom } from '../ButtonCustom';
+import type { TaskModel } from '../../models/TaskModel';
+import { useTaskContext } from '../../contexts/TaskContext';
 
 import styles from './styles.module.css';
 
 export function MainForm() {
-  const task_name_input = useRef<HTMLInputElement>(null);
+  const { state, setState } = useTaskContext();
+  const taskNameInput = useRef<HTMLInputElement>(null);
 
   const handle_create_new_task = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
+    if (!taskNameInput.current) return;
+
+    const task_name = taskNameInput.current?.value.trim();
+
+    if (!task_name) {
+      alert('Digite o nome da tarefa');
+      return;
+    }
+
+    const newTask: TaskModel = {
+      id: Date.now().toString(),
+      name: task_name,
+      startDate: Date.now(),
+      completeDate: null,
+      interruptDate: null,
+      duration: 1,
+      type: 'workTime',
+    };
+
+    const secondsRemaining = newTask.duration * 60;
+
+    setState((prev) => ({
+      ...prev,
+      activeTask: newTask,
+      currentCycle: 1,
+      secondsRemaining,
+      formattedSecondsRemaining: '00:00',
+      tasks: [...prev.tasks, newTask],
+      config: { ...prev.config },
+    }));
   };
 
   return (
     <Section>
       <form className={styles.form} onSubmit={handle_create_new_task}>
         <InputCustom
-          ref={task_name_input}
+          ref={taskNameInput}
           label="task"
           id="new_task"
           name="new_task"
