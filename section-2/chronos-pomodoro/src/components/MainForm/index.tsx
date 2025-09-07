@@ -56,6 +56,14 @@ export function MainForm() {
     }));
   };
 
+  function handleInterruptTask() {
+    setState((prev) => ({
+      ...prev,
+      activeTask: null,
+      secondsRemaining: 0,
+      formattedSecondsRemaining: formatSecondsToMinutes(0),
+    }));
+  }
   return (
     <Section>
       <form className={styles.form} onSubmit={handle_create_new_task}>
@@ -76,14 +84,17 @@ export function MainForm() {
         {state.currentCycle > 0 && <Cycles />}
         {!!state.activeTask ? (
           <ButtonCustom
+            key="active"
             status="active"
             type="button"
             title="Interromper tarefa atual"
             aria-label="Interromper tarefa atual"
             Icon={StopCircleIcon}
+            onClick={handleInterruptTask}
           />
         ) : (
           <ButtonCustom
+            key="idle"
             status="idle"
             type="submit"
             title="Iniciar nova tarefa"
