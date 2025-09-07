@@ -66,6 +66,7 @@ export function MainForm() {
           name="new_task"
           placeholder="Digite algo"
           type="text"
+          disabled={!!state.activeTask}
         />
 
         <p className={styles.next_step}>
