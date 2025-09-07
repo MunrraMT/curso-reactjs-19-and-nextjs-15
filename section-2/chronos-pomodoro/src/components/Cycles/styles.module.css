@@ -22,14 +22,14 @@
   border-radius: 50%;
 }
 
-.item_work {
+.workTime {
   background: var(--warning);
 }
 
-.item_short_rest {
+.shortBreakTime {
   background-color: var(--primary);
 }
 
-.item_long_rest {
+.longBreakTime {
   background: var(--info);
 }

@@ -5,13 +5,14 @@ import { Section } from '../Section';
 import { InputCustom } from '../InputCustom';
 import { Cycles } from '../Cycles';
 import { ButtonCustom } from '../ButtonCustom';
-import type { TaskModel } from '../../models/TaskModel';
 import { useTaskContext } from '../../contexts/TaskContext';
 import { getNextCycle } from '../../utils/getNextCycle';
 import { getNextCycleType } from '../../utils/getNextCycleType';
+import { formatSecondsToMinutes } from '../../utils/formatSecondsToMinutes';
+
+import type { TaskModel } from '../../models/TaskModel';
 
 import styles from './styles.module.css';
-import { formatSecondsToMinutes } from '../../utils/formatSecondsToMinutes';
 
 export function MainForm() {
   const { state, setState } = useTaskContext();
@@ -51,7 +52,7 @@ export function MainForm() {
       secondsRemaining,
       formattedSecondsRemaining: formatSecondsToMinutes(secondsRemaining),
       tasks: [...prev.tasks, newTask],
-      config: { ...prev.config },
+      config: { ...state.config },
     }));
   };
 
@@ -71,7 +72,7 @@ export function MainForm() {
           Próximo ciclo é de <strong>25min</strong>
         </p>
 
-        <Cycles />
+        {state.currentCycle > 0 && <Cycles />}
         <ButtonCustom
           title="Iniciar nova tarefa"
           IconIdle={PlayCircleIcon}
