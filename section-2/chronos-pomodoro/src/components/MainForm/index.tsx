@@ -70,6 +70,7 @@ export function MainForm() {
       }),
     }));
   }
+
   return (
     <Section>
       <form className={styles.form} onSubmit={handle_create_new_task}>
