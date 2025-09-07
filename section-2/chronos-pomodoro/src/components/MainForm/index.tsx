@@ -7,12 +7,15 @@ import { Cycles } from '../Cycles';
 import { ButtonCustom } from '../ButtonCustom';
 import type { TaskModel } from '../../models/TaskModel';
 import { useTaskContext } from '../../contexts/TaskContext';
+import { getNextCycle } from '../../utils/getNextCycle';
 
 import styles from './styles.module.css';
 
 export function MainForm() {
   const { state, setState } = useTaskContext();
   const taskNameInput = useRef<HTMLInputElement>(null);
+
+  const nextCycle = getNextCycle(state.currentCycle);
 
   const handle_create_new_task = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -41,7 +44,7 @@ export function MainForm() {
     setState((prev) => ({
       ...prev,
       activeTask: newTask,
-      currentCycle: 1,
+      currentCycle: nextCycle,
       secondsRemaining,
       formattedSecondsRemaining: '00:00',
       tasks: [...prev.tasks, newTask],
