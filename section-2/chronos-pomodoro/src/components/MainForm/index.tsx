@@ -74,11 +74,23 @@ export function MainForm() {
         </p>
 
         {state.currentCycle > 0 && <Cycles />}
-        <ButtonCustom
-          title="Iniciar nova tarefa"
-          IconIdle={PlayCircleIcon}
-          IconActive={StopCircleIcon}
-        />
+        {!!state.activeTask ? (
+          <ButtonCustom
+            status="active"
+            type="button"
+            title="Interromper tarefa atual"
+            aria-label="Interromper tarefa atual"
+            Icon={StopCircleIcon}
+          />
+        ) : (
+          <ButtonCustom
+            status="idle"
+            type="submit"
+            title="Iniciar nova tarefa"
+            aria-label="Iniciar nova tarefa"
+            Icon={PlayCircleIcon}
+          />
+        )}
       </form>
     </Section>
   );
