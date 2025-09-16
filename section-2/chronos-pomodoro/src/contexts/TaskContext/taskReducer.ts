@@ -42,6 +42,4 @@ export function taskReducer(
       return state;
     }
   }
-
-  return state;
 }

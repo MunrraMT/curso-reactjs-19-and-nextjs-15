@@ -8,12 +8,12 @@ import { ButtonCustom } from '../ButtonCustom';
 import { useTaskContext } from '../../contexts/TaskContext';
 import { getNextCycle } from '../../utils/getNextCycle';
 import { getNextCycleType } from '../../utils/getNextCycleType';
-import { formatSecondsToMinutes } from '../../utils/formatSecondsToMinutes';
+import { TaskActionTypes } from '../../contexts/TaskContext/taskActions';
+import { TipsForNextTask } from '../Tips';
 
 import type { TaskModel } from '../../models/TaskModel';
 
 import styles from './styles.module.css';
-import { TaskActionTypes } from '../../contexts/TaskContext/taskActions';
 
 export function MainForm() {
   const { state, dispatch } = useTaskContext();
@@ -65,7 +65,7 @@ export function MainForm() {
         />
 
         <p className={styles.next_step}>
-          Próximo ciclo é de <strong>25min</strong>
+          <TipsForNextTask />
         </p>
 
         {state.currentCycle > 0 && <Cycles />}
