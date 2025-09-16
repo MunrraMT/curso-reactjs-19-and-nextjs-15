@@ -7,14 +7,14 @@ export const TaskActionTypes = {
 } as const;
 
 export type TaskActionsWithPayload = {
-  type:
-    | typeof TaskActionTypes.START_TASK
-    | typeof TaskActionTypes.INTERRUPT_TASK;
+  type: typeof TaskActionTypes.START_TASK;
   payload: TaskModel;
 };
 
 export type TaskActionsWithoutPayload = {
-  type: typeof TaskActionTypes.RESET_STATE;
+  type:
+    | typeof TaskActionTypes.RESET_STATE
+    | typeof TaskActionTypes.INTERRUPT_TASK;
 };
 
 export type TaskActionModel =
