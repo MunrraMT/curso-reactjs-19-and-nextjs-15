@@ -1,5 +1,20 @@
-self.postMessage('worker ON');
-self.postMessage('tudo bem?');
+let isRunning = false;
+
 self.onmessage = (event) => {
-  console.log('worker:', event.data);
+  if (isRunning) return;
+
+  isRunning = true;
+
+  const state = event.data;
+  const { activeTask, secondsRemaining } = state;
+  const endDate = activeTask.startDate + secondsRemaining * 1000;
+  let countDownSeconds = Math.ceil((endDate - Date.now()) / 1000);
+
+  function tick() {
+    self.postMessage(countDownSeconds);
+    countDownSeconds = Math.floor((endDate - Date.now()) / 1000);
+    setInterval(tick, 1000);
+  }
+
+  tick();
 };
