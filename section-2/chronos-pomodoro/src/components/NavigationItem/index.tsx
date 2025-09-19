@@ -1,6 +1,8 @@
 import type { ElementType } from 'react';
+
+import { RouterLink } from '../RouterLink';
+
 import styles from './styles.module.css';
-import { Link } from 'react-router';
 
 interface Props {
   title: string;
@@ -22,14 +24,14 @@ export function NavigationItem(props: Props) {
           <props.Icon className={styles.icon} />
         </button>
       ) : (
-        <Link
-          to={props.url || '/'}
+        <RouterLink
+          href={props.url || '/'}
           title={props.title}
           aria-label={props.title}
           className={styles.link}
         >
           <props.Icon className={styles.icon} />
-        </Link>
+        </RouterLink>
       )}
     </li>
   );
