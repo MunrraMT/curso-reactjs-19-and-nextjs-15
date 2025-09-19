@@ -1,9 +1,11 @@
 import type { ElementType } from 'react';
 import styles from './styles.module.css';
+import { Link } from 'react-router';
 
 interface Props {
   title: string;
   Icon: ElementType;
+  url?: string;
   onClick?: () => void;
 }
 
@@ -20,14 +22,14 @@ export function NavigationItem(props: Props) {
           <props.Icon className={styles.icon} />
         </button>
       ) : (
-        <a
-          href="/"
+        <Link
+          to={props.url || '/'}
           title={props.title}
           aria-label={props.title}
           className={styles.link}
         >
           <props.Icon className={styles.icon} />
-        </a>
+        </Link>
       )}
     </li>
   );

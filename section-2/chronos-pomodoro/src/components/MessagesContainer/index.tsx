@@ -1,13 +1,14 @@
 import { Bounce, ToastContainer } from 'react-toastify';
 
 interface Props {
-  children?: React.ReactNode;
+  children: React.ReactNode;
 }
 
-export function MessagesContainer(props: Props) {
+export function MessagesProvider(props: Props) {
   return (
     <>
       {props.children}
+
       <ToastContainer
         position="top-center"
         autoClose={10000}
