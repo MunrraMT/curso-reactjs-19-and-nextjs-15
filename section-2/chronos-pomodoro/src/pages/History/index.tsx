@@ -3,11 +3,21 @@ import { TrashIcon } from 'lucide-react';
 import { ButtonCustom } from '../../components/ButtonCustom';
 import { Heading } from '../../components/Heading';
 import { MainTemplate } from '../../templates/MainTemplate';
+import { Section } from '../../components/Section';
+import { useTaskContext } from '../../contexts/TaskContext';
 
 import styles from './styles.module.css';
-import { Section } from '../../components/Section';
+import type { TaskModel } from '../../models/TaskModel';
 
 export function History() {
+  const { state } = useTaskContext();
+
+  const taskTypeConvertToDisplay: Record<TaskModel['type'], string> = {
+    workTime: 'Foco',
+    shortBreakTime: 'Descanso Curto',
+    longBreakTime: 'Descanso Longo',
+  };
+
   return (
     <MainTemplate>
       <Heading>
@@ -34,13 +44,15 @@ export function History() {
               </tr>
             </thead>
             <tbody>
-              {Array.from({ length: 20 }).map((_, index) => (
-                <tr key={index}>
-                  <td align="center">Estudar</td>
-                  <td align="center">25min</td>
-                  <td align="center">20/04/2025 08:00</td>
-                  <td align="center">Completa</td>
-                  <td align="center">Foco</td>
+              {[...state.tasks].reverse().map((task) => (
+                <tr key={task.id}>
+                  <td align="center">{task.name}</td>
+                  <td align="center">{task.duration}min</td>
+                  <td align="center">
+                    {new Date(task.startDate).toLocaleString()}
+                  </td>
+                  <td align="center">{task.interruptDate}</td>
+                  <td align="center">{taskTypeConvertToDisplay[task.type]}</td>
                 </tr>
               ))}
             </tbody>
