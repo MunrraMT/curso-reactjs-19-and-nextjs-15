@@ -10,9 +10,12 @@ import styles from './styles.module.css';
 import type { TaskModel } from '../../models/TaskModel';
 import { formatDate } from '../../utils/formatDate';
 import { getTaskStatus } from '../../utils/getTaskStatus';
+import { sortTasks } from '../../utils/sortTasks';
 
 export function History() {
   const { state } = useTaskContext();
+
+  const sortedTask = sortTasks({ tasks: state.tasks });
 
   const taskTypeDictionary: Record<TaskModel['type'], string> = {
     workTime: 'Foco',
@@ -46,7 +49,7 @@ export function History() {
               </tr>
             </thead>
             <tbody>
-              {[...state.tasks].reverse().map((task) => (
+              {sortedTask.map((task) => (
                 <tr key={task.id}>
                   <td align="center">{task.name}</td>
                   <td align="center">{task.duration}min</td>

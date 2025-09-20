@@ -8,6 +8,7 @@ import { TaskActionTypes } from './taskActions';
 import { loadBeep } from '../../utils/loadBeep';
 import type { TaskStateModel } from '../../models/TaskStateModel';
 import { formatSecondsToMinutes } from '../../utils/formatSecondsToMinutes';
+import { showMessage } from '../../adapters/showMessage';
 
 type TaskContextProviderProps = {
   children: React.ReactNode;
@@ -35,6 +36,8 @@ export function TaskContextProvider(props: TaskContextProviderProps) {
     if (countDownSeconds <= 0) {
       playBeepRef.current?.();
       playBeepRef.current = null;
+
+      showMessage.info('Tarefa completada');
 
       dispatch({ type: TaskActionTypes.COMPLETE_TASK });
       worker.terminate();
