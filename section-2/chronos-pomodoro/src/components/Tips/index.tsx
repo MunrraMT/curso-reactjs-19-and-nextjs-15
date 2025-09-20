@@ -43,7 +43,7 @@ export function TipsForNextTask() {
     ),
   };
 
-  return !!state.activeTask
+  return state.activeTask
     ? tipsForWhenActiveTask[state.activeTask.type]
     : tipsForNoActiveTask[nextCycleType];
 }

@@ -74,7 +74,7 @@ export function MainForm() {
         </p>
 
         {state.currentCycle > 0 && <Cycles />}
-        {!!state.activeTask ? (
+        {state.activeTask ? (
           <ButtonCustom
             key="active"
             status="active"
