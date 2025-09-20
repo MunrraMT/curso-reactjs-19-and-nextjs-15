@@ -1,0 +1,27 @@
+.item {
+  display: block;
+  list-style: none;
+}
+
+.link {
+  padding: 1.2rem;
+  border-radius: 0.8rem;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  background-color: var(--primary);
+  color: var(--text-over-primary);
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.link:hover {
+  filter: brightness(60%);
+}
+
+.icon {
+  width: 2.4rem;
+  height: 2.4rem;
+}

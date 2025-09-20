@@ -1,0 +1,56 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.4rem;
+}
+
+.label {
+}
+
+.input_text {
+  background-color: transparent;
+  text-align: center;
+  font-size: 1.8rem;
+  padding: 0.8rem;
+  color: var(--text-default);
+  outline: none;
+  border: 0.2rem solid transparent;
+  border-bottom: 0.2rem solid var(--primary);
+  transition: all 0.2s ease-in-out;
+}
+
+.input_text::placeholder {
+  color: var(--gray-500);
+  font-size: 1.4rem;
+  font-style: italic;
+}
+
+.next_step {
+}
+
+.steps_label {
+}
+
+.step_item {
+}
+
+.btn_submit {
+  background: var(--primary);
+  color: var(--text-over-primary);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24rem;
+  padding: 0.8rem;
+  border-radius: 0.8rem;
+  margin: 4.8rem 0;
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
+}
+
+.btn_submit_icon {
+  width: 3.2rem;
+  height: 3.2rem;
+}
