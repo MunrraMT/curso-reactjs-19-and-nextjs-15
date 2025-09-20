@@ -10,7 +10,7 @@ import { sortTasks, type SortTasksOptions } from '../../utils/sortTasks';
 import { formatDate } from '../../utils/formatDate';
 import { getTaskStatus } from '../../utils/getTaskStatus';
 import { TaskActionTypes } from '../../contexts/TaskContext/taskActions';
-import type { TaskModel } from '../../models/TaskModel';
+import { taskTypeDictionary } from '../../dictionaries/taskTypeDictionary';
 
 import styles from './styles.module.css';
 
@@ -59,12 +59,6 @@ export function History() {
   }
 
   const hasTasks = state.tasks.length > 0;
-
-  const taskTypeDictionary: Record<TaskModel['type'], string> = {
-    workTime: 'Foco',
-    shortBreakTime: 'Descanso Curto',
-    longBreakTime: 'Descanso Longo',
-  };
 
   return (
     <MainTemplate>
@@ -119,6 +113,7 @@ export function History() {
                   <th>Tipo</th>
                 </tr>
               </thead>
+
               <tbody>
                 {sortTaskOptions.tasks.map((task) => (
                   <tr key={task.id}>
