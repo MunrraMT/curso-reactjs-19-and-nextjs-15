@@ -8,6 +8,7 @@ import { useTaskContext } from '../../contexts/TaskContext';
 
 import styles from './styles.module.css';
 import type { TaskModel } from '../../models/TaskModel';
+import { formatDate } from '../../utils/formatDate';
 
 export function History() {
   const { state } = useTaskContext();
@@ -48,9 +49,7 @@ export function History() {
                 <tr key={task.id}>
                   <td align="center">{task.name}</td>
                   <td align="center">{task.duration}min</td>
-                  <td align="center">
-                    {new Date(task.startDate).toLocaleString()}
-                  </td>
+                  <td align="center">{formatDate(task.startDate)}</td>
                   <td align="center">{task.interruptDate}</td>
                   <td align="center">{taskTypeConvertToDisplay[task.type]}</td>
                 </tr>
