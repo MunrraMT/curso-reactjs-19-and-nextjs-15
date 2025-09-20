@@ -62,7 +62,7 @@ export function TaskContextProvider(props: TaskContextProviderProps) {
     document.title = state.activeTask
       ? `${state.formattedSecondsRemaining} - Chronos Pomodoro`
       : 'Chronos Pomodoro';
-  }, [state.activeTask]);
+  }, [state]);
 
   useEffect(() => {
     playBeepRef.current =
