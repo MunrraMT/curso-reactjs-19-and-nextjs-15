@@ -14,7 +14,7 @@ import { getTaskStatus } from '../../utils/getTaskStatus';
 export function History() {
   const { state } = useTaskContext();
 
-  const taskTypeConvertToDisplay: Record<TaskModel['type'], string> = {
+  const taskTypeDictionary: Record<TaskModel['type'], string> = {
     workTime: 'Foco',
     shortBreakTime: 'Descanso Curto',
     longBreakTime: 'Descanso Longo',
@@ -54,7 +54,7 @@ export function History() {
                   <td align="center">
                     {getTaskStatus(task, state.activeTask)}
                   </td>
-                  <td align="center">{taskTypeConvertToDisplay[task.type]}</td>
+                  <td align="center">{taskTypeDictionary[task.type]}</td>
                 </tr>
               ))}
             </tbody>
