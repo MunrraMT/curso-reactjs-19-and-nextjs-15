@@ -40,7 +40,7 @@ export function taskReducer(
     }
 
     case TaskActionTypes.RESET_STATE: {
-      return initial_task_state;
+      return { ...initial_task_state };
     }
 
     case TaskActionTypes.COUNT_DOWN: {
