@@ -12,9 +12,10 @@ import { ButtonCustom } from '../../components/ButtonCustom';
 
 import styles from './styles.module.css';
 import { showMessage } from '../../adapters/showMessage';
+import { TaskActionTypes } from '../../contexts/TaskContext/taskActions';
 
 export function Settings() {
-  const { state } = useTaskContext();
+  const { state, dispatch } = useTaskContext();
 
   const workTimeInputRef = useRef<HTMLInputElement>(null);
   const shortBreakTimeInputRef = useRef<HTMLInputElement>(null);
@@ -50,6 +51,15 @@ export function Settings() {
       });
       formErros = [];
     } else {
+      dispatch({
+        type: TaskActionTypes.CHANGE_SETTINGS,
+        payload: {
+          workTime,
+          shortBreakTime,
+          longBreakTime,
+        },
+      });
+      showMessage.success('Configurações salvas');
     }
   }
 
