@@ -35,3 +35,24 @@
   border-bottom: 0.2rem solid var(--gray-700);
   padding: 1.6rem;
 }
+
+.thSort {
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
+}
+
+.thSort:hover {
+  filter: brightness(80%);
+}
+
+.thSortContent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.thSortIcon {
+  width: 18px;
+  height: 18px;
+}
