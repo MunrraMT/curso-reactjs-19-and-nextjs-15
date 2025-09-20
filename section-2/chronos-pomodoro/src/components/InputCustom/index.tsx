@@ -1,4 +1,5 @@
 import type { ComponentProps } from 'react';
+
 import styles from './styles.module.css';
 
 interface Props extends ComponentProps<'input'> {
