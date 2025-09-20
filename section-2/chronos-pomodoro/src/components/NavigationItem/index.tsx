@@ -7,7 +7,7 @@ import styles from './styles.module.css';
 interface Props {
   title: string;
   Icon: ElementType;
-  url?: string;
+  href?: string;
   onClick?: () => void;
 }
 
@@ -25,7 +25,7 @@ export function NavigationItem(props: Props) {
         </button>
       ) : (
         <RouterLink
-          href={props.url || '/'}
+          href={props.href || '/'}
           title={props.title}
           aria-label={props.title}
           className={styles.link}

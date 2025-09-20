@@ -35,8 +35,16 @@ export function Navigation() {
     <nav className={styles.container}>
       <ul className={styles.list}>
         <NavigationItem title="Ir para home" Icon={HouseIcon} />
-        <NavigationItem title="Ver histórico" Icon={HistoryIcon} />
-        <NavigationItem title="Configurações" Icon={SettingsIcon} />
+        <NavigationItem
+          href="/history/"
+          title="Ver histórico"
+          Icon={HistoryIcon}
+        />
+        <NavigationItem
+          href="/settings/"
+          title="Configurações"
+          Icon={SettingsIcon}
+        />
         <NavigationItem
           title="Trocar tema"
           Icon={current_theme_icon[theme]}

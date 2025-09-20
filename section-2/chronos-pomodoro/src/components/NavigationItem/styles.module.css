@@ -12,7 +12,7 @@
   justify-content: center;
   text-decoration: none;
   background-color: var(--primary);
-  color: var(--text-hover-primary);
+  color: var(--text-over-primary);
   transition: all 0.2s ease-in-out;
   cursor: pointer;
 }
