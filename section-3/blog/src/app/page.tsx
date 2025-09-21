@@ -1,19 +1,12 @@
 import { Suspense } from 'react';
 
-import { Heading } from '@/components/Heading';
 import PostList from '@/components/PostList';
 import { SpinLoader } from '@/components/SpinLoader';
 
 export default async function HomePage() {
   return (
-    <>
-      <Suspense fallback={<SpinLoader className="min-h-full" />}>
-        <PostList />
-      </Suspense>
-
-      <header>
-        <Heading text="Header" />
-      </header>
+    <div className="text-slate-900 dark:text-slate-100 bg-slate-100 dark:bg-slate-900 min-h-screen">
+      <header>Aqui é o header</header>
 
       <main>
         <Suspense fallback={<SpinLoader className="min-h-full" />}>
@@ -21,13 +14,7 @@ export default async function HomePage() {
         </Suspense>
       </main>
 
-      <footer>
-        <Heading text="Footer" />
-      </footer>
-
-      <Suspense fallback={<SpinLoader className="min-h-full" />}>
-        <PostList />
-      </Suspense>
-    </>
+      <footer>Footer</footer>
+    </div>
   );
 }
