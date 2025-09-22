@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import Link from 'next/link';
 
 type HeadingProps = {
   className?: string;
@@ -16,7 +17,7 @@ export function Header(props: HeadingProps) {
           props.className,
         )}
       >
-        <a href="#">The Blog</a>
+        <Link href="#">The Blog</Link>
       </h1>
     </header>
   );
