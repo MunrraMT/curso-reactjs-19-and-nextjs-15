@@ -1,12 +1,13 @@
 import { Suspense } from 'react';
+import clsx from 'clsx';
 import Link from 'next/link';
 import Image from 'next/image';
 
-import PostList from '@/components/PostList';
 import { SpinLoader } from '@/components/SpinLoader';
 import { Container } from '@/components/Container';
 import { Header } from '@/components/Header';
-import clsx from 'clsx';
+import PostList from '@/components/PostList';
+import { PostHeading } from '@/components/PostHeading';
 
 export default async function HomePage() {
   return (
@@ -37,9 +38,9 @@ export default async function HomePage() {
             20/04/2025
           </time>
 
-          <h1 className={clsx('text-2xl/tight font-extrabold', 'sm:text-4xl')}>
-            <Link href={'#'}>Lorem ipsum dolor sit, amet consectetur</Link>
-          </h1>
+          <PostHeading as="h1" href="#">
+            Lorem ipsum dolor sit, amet consectetur
+          </PostHeading>
 
           <p>
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Est,
