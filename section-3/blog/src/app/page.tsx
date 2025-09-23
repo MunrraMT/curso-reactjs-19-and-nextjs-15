@@ -1,13 +1,12 @@
 import { Suspense } from 'react';
 import clsx from 'clsx';
-import Link from 'next/link';
-import Image from 'next/image';
 
 import { SpinLoader } from '@/components/SpinLoader';
 import { Container } from '@/components/Container';
 import { Header } from '@/components/Header';
-import PostList from '@/components/PostList';
 import { PostHeading } from '@/components/PostHeading';
+import PostList from '@/components/PostList';
+import { PostCoverImage } from '@/components/PostCoverImage';
 
 export default async function HomePage() {
   return (
@@ -17,21 +16,10 @@ export default async function HomePage() {
       <section
         className={clsx('grid grid-cols-1 gap-8 mb-16 group', 'sm:grid-cols-2')}
       >
-        <Link className="size-full overflow-hidden rounded-xl" href="#">
-          <Image
-            className={clsx(
-              'transition duration-300 size-full object-cover object-center',
-              'group-hover:scale-105',
-            )}
-            width={1200}
-            height={720}
-            alt=""
-            src="/images/bryen_0.png"
-            priority
-            fetchPriority="high"
-            loading="eager"
-          />
-        </Link>
+        <PostCoverImage
+          containerLinkProps={{ href: '#' }}
+          imageProps={{ alt: '', src: '/images/bryen_0.png' }}
+        />
 
         <div className={clsx('flex flex-col gap-2', 'sm:justify-center')}>
           <time dateTime="2025-04-20" className="text-slate-600 text-sm/tight">
