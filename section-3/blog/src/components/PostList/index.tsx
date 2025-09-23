@@ -1,10 +1,10 @@
-import { postRepository } from '@/repositories/post';
 import { PostCoverImage } from '../PostCoverImage';
 import { cssFormatter } from '@/tools/css-formatter';
 import { PostSummary } from '../PostSummary';
+import { findAllPublicPosts } from '@/lib/post/queries';
 
 export default async function PostList() {
-  const posts = await postRepository.findAll();
+  const posts = await findAllPublicPosts();
   const postLink = (slug: string) => `/post/${slug}`;
   return (
     <div
@@ -14,7 +14,7 @@ export default async function PostList() {
         'lg:grid-cols-3',
       )}
     >
-      {posts.map((post) => (
+      {posts.slice(1).map((post) => (
         <div key={post.id} className="group flex flex-col gap-4">
           <PostCoverImage
             containerLinkProps={{ href: postLink(post.slug) }}

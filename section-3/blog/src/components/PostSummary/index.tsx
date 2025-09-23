@@ -22,7 +22,7 @@ export function PostSummary(props: PostSummaryProps) {
       <PostHeading as={props.heading} href={props.link}>
         {props.title}
       </PostHeading>
-      <p>{props.excerpt}</p>
+      <p className="text-justify line-clamp-4">{props.excerpt}</p>
     </div>
   );
 }

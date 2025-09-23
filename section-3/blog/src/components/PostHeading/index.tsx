@@ -11,12 +11,14 @@ export type PostHeadingProps = {
 export function PostHeading(props: PostHeadingProps) {
   const headingClassesMap: Record<PostHeadingProps['as'], string> = {
     h1: 'text-2xl/tight sm:text-4xl font-extrabold',
-    h2: 'text-2xl/tight sm:text-4xl font-bold',
-    h3: 'text-2xl/tight sm:text-4xl',
+    h2: 'text-2xl/tight sm:text-3xl font-bold',
+    h3: 'text-2xl/tight sm:text-2xl',
   };
 
   return (
-    <props.as className={cssFormatter(headingClassesMap[props.as])}>
+    <props.as
+      className={cssFormatter(headingClassesMap[props.as], 'line-clamp-2')}
+    >
       <Link href={props.href}>{props.children}</Link>
     </props.as>
   );
