@@ -1,20 +1,21 @@
-import clsx from 'clsx';
-
 import { PostCoverImage } from '../PostCoverImage';
 import { PostHeading } from '../PostHeading';
-import { PostModel } from '@/models/post/post-model';
+import { cssFormatter } from '@/tools/css-formatter';
 
 export function PostFeatured() {
   return (
     <section
-      className={clsx('grid grid-cols-1 gap-8 mb-16 group', 'sm:grid-cols-2')}
+      className={cssFormatter(
+        'grid grid-cols-1 gap-8 mb-16 group',
+        'sm:grid-cols-2',
+      )}
     >
       <PostCoverImage
         containerLinkProps={{ href: '#' }}
         imageProps={{ alt: '', src: '/images/bryen_0.png' }}
       />
 
-      <div className={clsx('flex flex-col gap-2', 'sm:justify-center')}>
+      <div className={cssFormatter('flex flex-col gap-2', 'sm:justify-center')}>
         <time dateTime="2025-04-20" className="text-slate-600 text-sm/tight">
           20/04/2025
         </time>

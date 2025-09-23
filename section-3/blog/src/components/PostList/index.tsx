@@ -1,14 +1,13 @@
-import clsx from 'clsx';
-
 import { postRepository } from '@/repositories/post';
 import { PostCoverImage } from '../PostCoverImage';
 import { PostHeading } from '../PostHeading';
+import { cssFormatter } from '@/tools/css-formatter';
 
 export default async function PostList() {
   const posts = await postRepository.findAll();
   return (
     <div
-      className={clsx(
+      className={cssFormatter(
         'grid grid-cols-1 gap-8',
         'sm:grid-cols-2',
         'lg:grid-cols-3',
@@ -21,7 +20,9 @@ export default async function PostList() {
             imageProps={{ alt: post.title, src: post.coverImageUrl }}
           />
 
-          <div className={clsx('flex flex-col gap-2', 'sm:justify-center')}>
+          <div
+            className={cssFormatter('flex flex-col gap-2', 'sm:justify-center')}
+          >
             <time
               dateTime={post.createdAt}
               className="text-slate-600 text-sm/tight"

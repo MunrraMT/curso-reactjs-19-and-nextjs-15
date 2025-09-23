@@ -1,5 +1,6 @@
-import clsx from 'clsx';
 import Link from 'next/link';
+
+import { cssFormatter } from '@/tools/css-formatter';
 
 type PostHeadingProps = {
   children: React.ReactNode;
@@ -15,7 +16,7 @@ export function PostHeading(props: PostHeadingProps) {
   };
 
   return (
-    <props.as className={clsx(headingClassesMap[props.as])}>
+    <props.as className={cssFormatter(headingClassesMap[props.as])}>
       <Link href={props.href}>{props.children}</Link>
     </props.as>
   );
