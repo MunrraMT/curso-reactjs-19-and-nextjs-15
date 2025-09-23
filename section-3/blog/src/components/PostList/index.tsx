@@ -17,7 +17,7 @@ export default async function PostList() {
       {posts.map((post) => (
         <div key={post.id} className="group flex flex-col gap-4">
           <PostCoverImage
-            containerLinkProps={{ href: post.slug }}
+            containerLinkProps={{ href: `/post/${post.slug}` }}
             imageProps={{ alt: post.title, src: post.coverImageUrl }}
           />
 
@@ -28,7 +28,7 @@ export default async function PostList() {
             >
               {post.createdAt}
             </time>
-            <PostHeading as="h2" href="#">
+            <PostHeading as="h2" href={`/post/${post.slug}`}>
               {post.title}
             </PostHeading>
             <p>{post.excerpt}</p>
