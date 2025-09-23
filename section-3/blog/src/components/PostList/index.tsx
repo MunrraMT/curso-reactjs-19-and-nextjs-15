@@ -1,11 +1,11 @@
 import { postRepository } from '@/repositories/post';
 import { PostCoverImage } from '../PostCoverImage';
-import { PostHeading } from '../PostHeading';
 import { cssFormatter } from '@/tools/css-formatter';
-import { formatDatetime, formatRelativeDate } from '@/tools/format-datetime';
+import { PostSummary } from '../PostSummary';
 
 export default async function PostList() {
   const posts = await postRepository.findAll();
+  const postLink = (slug: string) => `/post/${slug}`;
   return (
     <div
       className={cssFormatter(
@@ -17,26 +17,17 @@ export default async function PostList() {
       {posts.map((post) => (
         <div key={post.id} className="group flex flex-col gap-4">
           <PostCoverImage
-            containerLinkProps={{ href: `/post/${post.slug}` }}
+            containerLinkProps={{ href: postLink(post.slug) }}
             imageProps={{ alt: post.title, src: post.coverImageUrl }}
           />
 
-          <div
-            className={cssFormatter('flex flex-col gap-2', 'sm:justify-center')}
-          >
-            <time
-              dateTime={post.createdAt}
-              className="text-slate-600 text-sm/tight"
-            >
-              {formatDatetime(post.createdAt) +
-                ' - ' +
-                formatRelativeDate(post.createdAt)}
-            </time>
-            <PostHeading as="h2" href={`/post/${post.slug}`}>
-              {post.title}
-            </PostHeading>
-            <p>{post.excerpt}</p>
-          </div>
+          <PostSummary
+            createdAt={post.createdAt}
+            excerpt={post.excerpt}
+            heading={'h2'}
+            link={postLink(post.slug)}
+            title={post.title}
+          />
         </div>
       ))}
     </div>

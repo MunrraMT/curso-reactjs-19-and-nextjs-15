@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 import { cssFormatter } from '@/tools/css-formatter';
 
-type PostHeadingProps = {
+export type PostHeadingProps = {
   children: React.ReactNode;
   href: string;
   as: 'h1' | 'h2' | 'h3';
