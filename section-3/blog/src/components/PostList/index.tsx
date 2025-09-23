@@ -2,6 +2,7 @@ import { postRepository } from '@/repositories/post';
 import { PostCoverImage } from '../PostCoverImage';
 import { PostHeading } from '../PostHeading';
 import { cssFormatter } from '@/tools/css-formatter';
+import { formatDatetime, formatRelativeDate } from '@/tools/format-datetime';
 
 export default async function PostList() {
   const posts = await postRepository.findAll();
@@ -27,7 +28,9 @@ export default async function PostList() {
               dateTime={post.createdAt}
               className="text-slate-600 text-sm/tight"
             >
-              {post.createdAt}
+              {formatDatetime(post.createdAt) +
+                ' - ' +
+                formatRelativeDate(post.createdAt)}
             </time>
             <PostHeading as="h2" href={`/post/${post.slug}`}>
               {post.title}
