@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from 'next/font/google';
 
 import { Container } from '@/components/Container';
 import { Header } from '@/components/Header';
+import { Footer } from '@/components/Footer';
 
 import './globals.css';
 
@@ -34,8 +35,10 @@ export default function RootLayout({
       <body>
         <Container>
           <Header />
+
           {children}
-          <footer>Footer</footer>
+
+          <Footer />
         </Container>
       </body>
     </html>

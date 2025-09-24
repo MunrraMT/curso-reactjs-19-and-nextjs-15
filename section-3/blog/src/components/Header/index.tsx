@@ -18,7 +18,7 @@ export function Header(props: HeadingProps) {
           props.className,
         )}
       >
-        <Link href="#">The Blog</Link>
+        <Link href="/">The Blog</Link>
       </h1>
     </header>
   );
