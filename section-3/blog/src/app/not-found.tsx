@@ -1,6 +1,6 @@
 import { cssFormatter } from '@/tools/css-formatter';
 
-export default function NotFoundPage() {
+export default async function NotFoundPage() {
   return (
     <div
       className={cssFormatter(

@@ -6,7 +6,7 @@ import { findAllPublicPosts } from '@/lib/post/queries';
 export async function PostFeatured() {
   const posts = await findAllPublicPosts();
   const post = posts[0];
-  const postLink = (slug: string) => `/post/${slug}`;
+  const postLink = `/post/${post.slug}`;
   return (
     <section
       className={cssFormatter(
@@ -15,7 +15,7 @@ export async function PostFeatured() {
       )}
     >
       <PostCoverImage
-        containerLinkProps={{ href: postLink(post.slug) }}
+        containerLinkProps={{ href: postLink }}
         imageProps={{ alt: post.title, src: post.coverImageUrl }}
       />
 
@@ -23,7 +23,7 @@ export async function PostFeatured() {
         createdAt={post.createdAt}
         excerpt={post.excerpt}
         heading={'h1'}
-        link={postLink(post.slug)}
+        link={postLink}
         title={post.title}
       />
     </section>
