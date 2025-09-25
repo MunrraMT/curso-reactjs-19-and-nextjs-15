@@ -42,7 +42,7 @@ export class JSONPostRepository implements PostRepository {
     await this.simulateWait();
     const posts = await this.readFromDisk();
     const post = posts.find((post) => post.id === id);
-    if (!post) throw new Error('Post not find');
+    if (!post) throw new Error('Post not found');
     return post;
   }
 
@@ -50,5 +50,13 @@ export class JSONPostRepository implements PostRepository {
     const posts = await this.findAll();
     const postsPublic = posts.filter((post) => post.published);
     return postsPublic;
+  }
+
+  async findBySlugPublic(slug: string): Promise<PostModel> {
+    await this.simulateWait();
+    const posts = await this.readFromDisk();
+    const post = posts.find((post) => post.slug === slug && post.published);
+    if (!post) throw new Error('Post not found');
+    return post;
   }
 }

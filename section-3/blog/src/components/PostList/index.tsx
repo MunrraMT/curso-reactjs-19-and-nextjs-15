@@ -1,10 +1,10 @@
 import { PostCoverImage } from '../PostCoverImage';
 import { cssFormatter } from '@/tools/css-formatter';
 import { PostSummary } from '../PostSummary';
-import { findAllPublicPosts } from '@/lib/post/queries';
+import { findAllPublicPostsCached } from '@/lib/post/queries';
 
 export default async function PostList() {
-  const posts = await findAllPublicPosts();
+  const posts = await findAllPublicPostsCached();
   const postLink = (slug: string) => `/post/${slug}`;
   return (
     <div
