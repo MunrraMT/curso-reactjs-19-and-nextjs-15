@@ -9,13 +9,9 @@ export type PostSlugPageProps = {
 
 export default async function PostSlugPage(props: PostSlugPageProps) {
   const { slug } = await props.params;
-  let post;
-  try {
-    post = await findBySlugPublicPostsCached(slug);
-  } catch (error) {
-    console.log(error);
-  }
-  if (!post) notFound();
+  const post = await findBySlugPublicPostsCached(slug).catch((_error) => {
+    notFound();
+  });
   return (
     <h1 className={cssFormatter('text-5xl font-extrabold py-16')}>
       {post.title}
