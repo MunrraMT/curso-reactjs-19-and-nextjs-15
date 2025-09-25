@@ -4,7 +4,7 @@ import { cssFormatter } from '@/tools/css-formatter';
 
 export type PostHeadingProps = {
   children: React.ReactNode;
-  href: string;
+  href?: string;
   as: 'h1' | 'h2' | 'h3';
 };
 
@@ -19,7 +19,11 @@ export function PostHeading(props: PostHeadingProps) {
     <props.as
       className={cssFormatter(headingClassesMap[props.as], 'line-clamp-2')}
     >
-      <Link href={props.href}>{props.children}</Link>
+      {props.href ? (
+        <Link href={props.href}>{props.children}</Link>
+      ) : (
+        props.children
+      )}
     </props.as>
   );
 }
