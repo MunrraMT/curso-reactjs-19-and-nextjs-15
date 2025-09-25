@@ -13,7 +13,7 @@ const JSON_POSTS_FILE_PATH = resolve(
   'seed',
   'posts.json',
 );
-const MIN_SIMULATE_WAIT_IN_MS = 1000;
+const MIN_SIMULATE_WAIT_IN_MS = 100;
 const MAX_SIMULATE_WAIT_IN_MS = 5000;
 
 export class JSONPostRepository implements PostRepository {
@@ -23,24 +23,24 @@ export class JSONPostRepository implements PostRepository {
       MIN_SIMULATE_WAIT_IN_MS,
       MAX_SIMULATE_WAIT_IN_MS,
     );
+
     await new Promise((resolve) => setTimeout(resolve, timer));
   }
 
   private async readFromDisk(): Promise<PostModel[]> {
+    await this.simulateWait();
     const JSONContent = await readFile(JSON_POSTS_FILE_PATH, 'utf-8');
     const parsedJSON = JSON.parse(JSONContent);
     return parsedJSON?.posts;
   }
 
   async findAll(): Promise<PostModel[]> {
-    await this.simulateWait();
     const posts = await this.readFromDisk();
     return posts;
   }
 
   async findById(id: string): Promise<PostModel> {
-    await this.simulateWait();
-    const posts = await this.readFromDisk();
+    const posts = await this.findAll();
     const post = posts.find((post) => post.id === id);
     if (!post) throw new Error('Post not found');
     return post;
@@ -53,8 +53,7 @@ export class JSONPostRepository implements PostRepository {
   }
 
   async findBySlugPublic(slug: string): Promise<PostModel> {
-    await this.simulateWait();
-    const posts = await this.readFromDisk();
+    const posts = await this.findAllPublic();
     const post = posts.find((post) => post.slug === slug && post.published);
     if (!post) throw new Error('Post not found');
     return post;
