@@ -6,6 +6,7 @@ import { cssFormatter } from '@/tools/css-formatter';
 import Image from 'next/image';
 import { PostHeading } from '../PostHeading';
 import { PostDatetime } from '../PostDatetime';
+import { SafeMarkdown } from '../SafeMarkdown';
 
 export type SinglePostProps = {
   slug: PostModel['slug'];
@@ -16,10 +17,10 @@ export async function SinglePost(props: SinglePostProps) {
     notFound();
   });
   return (
-    <article className="flex flex-col gap-4">
-      <header className="flex flex-col gap-4">
+    <article className={cssFormatter('flex flex-col gap-4')}>
+      <header className={cssFormatter('flex flex-col gap-4')}>
         <Image
-          className="rounded-xl"
+          className={cssFormatter('rounded-xl')}
           src={post.coverImageUrl}
           width={1200}
           height={720}
@@ -31,9 +32,9 @@ export async function SinglePost(props: SinglePostProps) {
         </p>
       </header>
 
-      <p className="text-xl">{post.excerpt}</p>
+      <p className={cssFormatter('text-xl')}>{post.excerpt}</p>
 
-      <div>{post.content}</div>
+      <SafeMarkdown markdown={post.content} />
     </article>
   );
 }
