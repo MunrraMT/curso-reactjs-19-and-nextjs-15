@@ -25,6 +25,11 @@ export async function generateMetadata(
 
 export default async function PostSlugPage(props: PostSlugPageProps) {
   const { slug } = await props.params;
+
+  if (slug === 'error-boundary') {
+    throw new Error('Erro na slug');
+  }
+
   return (
     <Suspense fallback={<SpinLoader className="min-h-full" />}>
       <SinglePost slug={slug} />
