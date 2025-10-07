@@ -2,10 +2,7 @@ import { Suspense } from 'react';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
-import {
-  findAllPublicPostsCached,
-  findBySlugPublicPostsCached,
-} from '@/lib/post/queries';
+import { findBySlugPublicPostsCached } from '@/lib/post/queries';
 import { SinglePost } from '@/components/SinglePost/indext';
 import { SpinLoader } from '@/components/SpinLoader';
 
@@ -27,10 +24,10 @@ export async function generateMetadata(
   };
 }
 
-export async function generateStaticParams() {
-  const posts = await findAllPublicPostsCached();
-  return posts.map((post) => ({ slug: post.slug }));
-}
+// export async function generateStaticParams() {
+//   const posts = await findAllPublicPostsCached();
+//   return posts.map((post) => ({ slug: post.slug }));
+// }
 
 export default async function PostSlugPage(props: PostSlugPageProps) {
   const { slug } = await props.params;
