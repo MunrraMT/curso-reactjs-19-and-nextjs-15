@@ -1,8 +1,11 @@
+import { Suspense } from 'react';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
-import { findBySlugPublicPostsCached } from '@/lib/post/queries';
-import { Suspense } from 'react';
+import {
+  findAllPublicPostsCached,
+  findBySlugPublicPostsCached,
+} from '@/lib/post/queries';
 import { SinglePost } from '@/components/SinglePost/indext';
 import { SpinLoader } from '@/components/SpinLoader';
 
@@ -14,13 +17,19 @@ export async function generateMetadata(
   props: PostSlugPageProps,
 ): Promise<Metadata> {
   const { slug } = await props.params;
-  const post = await findBySlugPublicPostsCached(slug).catch((_error) => {
+  const post = await findBySlugPublicPostsCached(slug).catch(() => {
     notFound();
   });
+
   return {
     title: post.title,
     description: post.excerpt.slice(1, 100),
   };
+}
+
+export async function generateStaticParams() {
+  const posts = await findAllPublicPostsCached();
+  return posts.map((post) => ({ slug: post.slug }));
 }
 
 export default async function PostSlugPage(props: PostSlugPageProps) {

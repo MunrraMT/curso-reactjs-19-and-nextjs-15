@@ -26,6 +26,7 @@ export function PostCoverImage(props: PostCoverImageProps) {
         )}
         width={props.imageProps?.width || 1200}
         height={props.imageProps?.height || 720}
+        alt={props.imageProps?.alt || ''}
       />
     </Link>
   );

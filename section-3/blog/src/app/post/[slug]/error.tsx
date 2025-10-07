@@ -5,7 +5,7 @@ import { ErrorPageProps } from '@/lib/types/error-page-props';
 
 export type SlugRouteErrorPageProps = ErrorPageProps & {};
 
-export default function SlugRouteErrorPage(props: SlugRouteErrorPageProps) {
+export default function SlugRouteErrorPage(_props: SlugRouteErrorPageProps) {
   return (
     <ErrorMessage
       pageTitle="Slug"

@@ -8,11 +8,11 @@ import { SearchParamsProp } from '@/lib/types/search-params-props';
 export type HomePageProps = SearchParamsProp & {};
 
 export default async function HomePage(props: HomePageProps) {
-  const { errorBoundary } = await props.searchParams;
+  // const { errorBoundary } = await props.searchParams;
 
-  if (errorBoundary !== undefined) {
-    throw new Error('Erro geral');
-  }
+  // if (errorBoundary !== undefined) {
+  //   throw new Error('Erro geral');
+  // }
 
   return (
     <>

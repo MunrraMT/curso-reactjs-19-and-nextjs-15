@@ -13,7 +13,7 @@ export type SinglePostProps = {
 };
 
 export async function SinglePost(props: SinglePostProps) {
-  const post = await findBySlugPublicPostsCached(props.slug).catch((_error) => {
+  const post = await findBySlugPublicPostsCached(props.slug).catch(() => {
     notFound();
   });
   return (
